@@ -371,4 +371,10 @@
             <organizationUrl>https://www.metalib.org/</organizationUrl>
         </developer>
     </developers>
+    <scm>
+        <connection>scm:git:git://github.com/org-metalib/papiflyfx-build-parent.git</connection>
+        <developerConnection>scm:git:https://github.com/org-metalib/papiflyfx-build-parent.git</developerConnection>
+        <url>https://github.com/org-metalib/papiflyfx-build-parent</url>
+        <tag>HEAD</tag>
+    </scm>
 </project>
