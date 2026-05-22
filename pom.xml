@@ -48,11 +48,11 @@
         <versions-maven-plugin.version>2.19.1</versions-maven-plugin.version>
         <central-publishing-maven-plugin.version>0.9.0</central-publishing-maven-plugin.version>
         <papiflyfx.version>0.0.27-SNAPSHOT</papiflyfx.version>
-        <papiflyfx-docking-code>0.0.25</papiflyfx-docking-code>
-        <papiflyfx-docking-content>0.0.25</papiflyfx-docking-content>
-        <papiflyfx-docking-core>0.0.25</papiflyfx-docking-core>
-        <papiflyfx-docking-login>0.0.25</papiflyfx-docking-login>
-        <papiflyfx-docking-platform>0.0.25</papiflyfx-docking-platform>
+        <papiflyfx-docking-code.version>0.0.25</papiflyfx-docking-code.version>
+        <papiflyfx-docking-content.version>0.0.25</papiflyfx-docking-content.version>
+        <papiflyfx-docking-core.version>0.0.25</papiflyfx-docking-core.version>
+        <papiflyfx-docking-login.version>0.0.25</papiflyfx-docking-login.version>
+        <papiflyfx-docking-platform.version>0.0.25</papiflyfx-docking-platform.version>
     </properties>
     <dependencyManagement>
         <dependencies>
