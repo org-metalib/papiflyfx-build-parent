@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.metalib.papifly.docking</groupId>
     <artifactId>papiflyfx-build-parent</artifactId>
-    <version>0.0.27-SNAPSHOT</version>
+    <version>0.0.27</version>
     <packaging>pom</packaging>
     <name>papiflyfx-build-parent</name>
     <description>Shared Maven parent for PapiflyFX repositories.</description>
@@ -47,7 +47,7 @@
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <versions-maven-plugin.version>2.19.1</versions-maven-plugin.version>
         <central-publishing-maven-plugin.version>0.9.0</central-publishing-maven-plugin.version>
-        <papiflyfx.version>0.0.27-SNAPSHOT</papiflyfx.version>
+        <papiflyfx.version>0.0.27</papiflyfx.version>
         <papiflyfx-docking-code>0.0.25</papiflyfx-docking-code>
         <papiflyfx-docking-content>0.0.25</papiflyfx-docking-content>
         <papiflyfx-docking-core>0.0.25</papiflyfx-docking-core>
@@ -396,6 +396,6 @@
         <connection>scm:git:git://github.com/org-metalib/papiflyfx-build-parent.git</connection>
         <developerConnection>scm:git:https://github.com/org-metalib/papiflyfx-build-parent.git</developerConnection>
         <url>https://github.com/org-metalib/papiflyfx-build-parent</url>
-        <tag>HEAD</tag>
+        <tag>v0.0.27</tag>
     </scm>
 </project>
