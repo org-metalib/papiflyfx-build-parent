@@ -29,12 +29,33 @@ jobs:
           echo "${OSSRH_GPG_PRIVATE_KEY}" | base64 -d | gpg --batch --import
       - name: release maven artifact
         run: |
+          CURRENT_VERSION="$(./mvnw -q -s ./.mvn/settings.xml -Dstyle.color=never -DforceStdout help:evaluate -Dexpression=project.version)"
+          RELEASE_VERSION="${CURRENT_VERSION%-SNAPSHOT}"
+          if [ "${CURRENT_VERSION}" = "${RELEASE_VERSION}" ]; then
+            echo "Expected a SNAPSHOT project version, got ${CURRENT_VERSION}" >&2
+            exit 1
+          fi
+
+          VERSION_PREFIX="${RELEASE_VERSION%.*}"
+          VERSION_PATCH="${RELEASE_VERSION##*.}"
+          case "${VERSION_PATCH}" in
+            ''|*[!0-9]*)
+              echo "Cannot calculate next snapshot version from ${RELEASE_VERSION}" >&2
+              exit 1
+              ;;
+          esac
+          DEVELOPMENT_VERSION="${VERSION_PREFIX}.$((VERSION_PATCH + 1))-SNAPSHOT"
+
           ./mvnw -Pmaven-central-publishing,gpg-sign \
                  -Dstyle.color=always \
                  -DskipTests -Darguments="-Dmaven.test.skip=true" \
                  -Dtestfx.headless=true -Djava.awt.headless=true \
                  -B -U -T 1C --errors -Dsurefire.useFile=false \
                  -s ./.mvn/settings.xml \
+                 -DreleaseVersion="${RELEASE_VERSION}" \
+                 -DdevelopmentVersion="${DEVELOPMENT_VERSION}" \
+                 -DpreparationGoals="versions:set-property -Dproperty=papiflyfx.version -DnewVersion=${RELEASE_VERSION} -Dpapiflyfx.version=${RELEASE_VERSION} clean verify" \
+                 -DcompletionGoals="versions:set-property -Dproperty=papiflyfx.version -DnewVersion=${DEVELOPMENT_VERSION} -Dpapiflyfx.version=${DEVELOPMENT_VERSION} validate" \
                  release:prepare \
                  release:perform \
                  -DskipTests=true -Djava.security.egd=file:/dev/./urandom -DscmCommentPrefix="[mvn-release] "

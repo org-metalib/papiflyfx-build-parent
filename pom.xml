@@ -47,7 +47,7 @@
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <versions-maven-plugin.version>2.19.1</versions-maven-plugin.version>
         <central-publishing-maven-plugin.version>0.9.0</central-publishing-maven-plugin.version>
-        <papiflyfx.version>0.0.25-SNAPSHOT</papiflyfx.version>
+        <papiflyfx.version>0.0.26-SNAPSHOT</papiflyfx.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -133,6 +133,22 @@
                                 <requireMavenVersion>
                                     <version>${maven.version.required}</version>
                                 </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>enforce-papiflyfx-version</id>
+                        <inherited>false</inherited>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireProperty>
+                                    <property>papiflyfx.version</property>
+                                    <regex>^\Q${project.version}\E$</regex>
+                                    <regexMessage>papiflyfx.version must match the papiflyfx-build-parent project.version.</regexMessage>
+                                </requireProperty>
                             </rules>
                         </configuration>
                     </execution>
