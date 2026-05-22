@@ -98,6 +98,13 @@
                 <artifactId>org.eclipse.jgit</artifactId>
                 <version>${jgit.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.metalib.papifly.docking</groupId>
+                <artifactId>papiflyfx-docking-bom</artifactId>
+                <version>${papiflyfx-docking-platform.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
