@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.metalib.papifly.docking</groupId>
     <artifactId>papiflyfx-build-parent</artifactId>
-    <version>0.0.27-SNAPSHOT</version>
+    <version>0.0.28-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>papiflyfx-build-parent</name>
     <description>Shared Maven parent for PapiflyFX repositories.</description>
